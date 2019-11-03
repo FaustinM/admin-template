@@ -1,0 +1,42 @@
+#profile-image {
+    margin-right: 7px;
+}
+.iconMargin {
+    margin-right: 5px;
+}
+.is-hide{
+    display : none;
+}
+
+.is-display{
+    display : block;
+}
+#numberList {
+    margin: 1%;
+    text-align: center;
+}
+
+#content {
+    margin: 1%;
+}
+
+#dividerBoxAccount {
+    margin-bottom: 2%;
+    margin-top: 1%;
+}
+
+#users {
+    width: 100%;
+}
+
+#dropdown-menu {
+    width: 100%;
+}
+
+.text-center{
+    text-align: center !important;
+}
+
+.profileImages {
+    width: 16%;
+}

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>La page d'aministration 0_0</title>
+    <script defer src="js/fontawesome.js"></script>
+    <link href="css/bulma.min.css" rel="stylesheet" />
+    <link href="css/common.css" rel="stylesheet"/>
+    <script src="js/common.js"></script>
+</head>
+<body>
+
+<nav aria-label="main navigation" class="navbar" role="navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="https://bulma.io">
+            <img alt="logo" height="28" src="https://bulma.io/images/bulma-logo.png" width="112">
+        </a>
+
+        <a aria-expanded="false" aria-label="menu" class="navbar-burger burger" id="navbar-burger" onclick="toggleNavBurger()" role="button">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+
+    <div class="navbar-menu" id="navbar-menu">
+        <div class="navbar-start">
+            <a class="navbar-item">
+                Accueil
+            </a>
+
+            <a class="navbar-item" href="pages/user.html">
+                <i class="fas iconMargin fa-user"></i>Utilisateurs
+            </a>
+
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">
+                    <i class="fas iconMargin fa-shield-alt"></i>Securité
+                </a>
+
+                <div class="navbar-dropdown">
+                    <a class="navbar-item">
+                        Accès
+                    </a>
+                    <a class="navbar-item">
+                        Blacklist
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="navbar-end">
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">
+                    <figure class="is-hidden-touch image" id="profile-image">
+                        <img class="is-hidden-touch is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+                    </figure>
+                    Bienvenue, Faustin !
+                </a>
+
+                <div class="navbar-dropdown is-right">
+                    <a class="navbar-item">
+                        <i class="fas iconMargin fa-user"></i>Détail de mon compte
+                    </a>
+                    <a class="navbar-item">
+                        <i class="fas iconMargin fa-sliders-h"></i>Réglages
+                    </a>
+                    <a class="navbar-item has-text-danger">
+                        <i class="fas iconMargin fa-sign-out-alt"></i>Déconnexion
+                    </a>
+                    <hr class="navbar-divider">
+                    <div class="navbar-item">
+                        Panel par Faustin
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+<div id="statut">
+    <section class="hero is-bold is-primary">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    Bienvenue sur le panel d'administration !
+                </h1>
+                <h2 class="subtitle">
+                    Tout va bien !
+                </h2>
+            </div>
+        </div>
+    </section>
+    <section class="hero is-bold is-warning is-hide">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    Bienvenue sur le panel d'administration !
+                </h1>
+                <h2 class="subtitle">
+                    Quelques problèmes sont à déplorer... (raison)
+                </h2>
+            </div>
+        </div>
+    </section>
+    <section class="hero is-bold is-danger is-hide">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    Bienvenue sur le panel d'administration !
+                </h1>
+                <h2 class="subtitle">
+                    Le service est dans le mal ! (raison)
+                </h2>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="tile is-ancestor has-text-centered" id="numberList">
+    <div class="tile is-parent">
+        <article class="tile notification is-bold is-child box is-primary">
+            <p class="subtitle">Utilisateurs</p>
+            <p class="title">1000</p>
+        </article>
+    </div>
+    <div class="tile is-parent">
+        <article class="tile notification is-bold is-primary is-child box">
+            <p class="subtitle">Visiteurs quotidiens</p>
+            <p class="title">334k</p>
+        </article>
+    </div>
+    <div class="tile is-parent">
+        <article class="tile notification is-warning is-bold is-child box">
+            <p class="subtitle">Rapports</p>
+            <p class="title">2</p>
+        </article>
+    </div>
+    <div class="tile is-parent">
+        <article class="tile is-child notification is-danger is-bold box">
+            <p class="subtitle">Erreurs</p>
+            <p class="title">4</p>
+        </article>
+    </div>
+</div>
+<div class="columns" id="content">
+    <div class="column is-6">
+        <div class="box">
+            <p >Recherche de compte</p>
+            <hr class="dropdown-divider" id="dividerBoxAccountSearch">
+            <div class="control has-icons-left has-icons-right">
+                <input class="input is-normal" onblur="toggleDropdown()" onfocus="toggleDropdown()" placeholder="Pseudo" type="text">
+                <span class="icon is-medium is-left">
+                      <i class="fa fa-search"></i>
+                    </span>
+                <span class="icon is-medium is-right">
+                      <i class="fa fa-check"></i>
+                    </span>
+                <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                    <div class="dropdown-content">
+                        <a class="dropdown-item" href="#">
+                            Dropdown item
+                        </a>
+                        <a class="dropdown-item">
+                            Other dropdown item
+                        </a>
+                        <a class="dropdown-item" href="#">
+                            Other dropdown item
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="box">
+            <p>Les derniers comptes crées !</p>
+            <hr class="dropdown-divider" id="dividerBoxAccountLast">
+            <div class="list is-hoverable">
+                <a class="list-item">
+                    <i class="fas fa-user-cog"></i>
+                    Pseudo1
+                </a>
+                <a class="list-item">
+                    <i class="fas fa-user-cog"></i>
+                    Pseudo2
+                </a>
+                <a class="list-item">
+                    <i class="fas fa-user-cog"></i>
+                    Pseudo3
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="column is-6">
+        <div class="box">
+            <nav class="panel">
+                <p class="panel-heading has-icons-right">Rapports et erreurs ouverts
+                    <span class="is-small is-right">
+                        <i aria-hidden="true" class="fas fa-sync-alt"></i>
+                    </span>
+                </p>
+                <div class="panel-block">
+                    <p class="control has-icons-left">
+                        <input class="input is-small" placeholder="Rechercher" type="text">
+                        <span class="icon is-small is-left">
+                            <i aria-hidden="true" class="fas fa-search"></i>
+                        </span>
+                    </p>
+                </div>
+                <p class="panel-tabs">
+                    <a>Report</a>
+                    <a class="is-active">Tout</a>
+                    <a>Issue</a>
+                </p>
+                <a class="panel-block has-text-danger">
+                    <span class="panel-icon">
+                        <i class="has-text-danger fas fa-bug"></i>
+                    </span>
+                    Bug critique
+                </a>
+                <a class="panel-block has-text-warning">
+                    <span class="panel-icon">
+                        <i class="has-text-warning fas fa-bug"></i>
+                    </span>
+                    Bug alerte
+                </a>
+                <a class="panel-block">
+                    <span class="panel-icon">
+                        <i class="fas fa-bug"></i>
+                    </span>
+                    Bug sans importance
+                </a>
+                <a class="panel-block">
+                    <span class="panel-icon">
+                        <i class="fas fa-user-cog"></i>
+                    </span>
+                    Nom : Raison
+                </a>
+            </nav>
+        </div>
+    </div>
+</div>
+</body>
+</html>

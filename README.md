@@ -14,6 +14,11 @@ Ce projet est un template pour tous vos projets nécessitant un panel d'administ
 
  - [La modification d'un utilisateur](https://faustinm.github.io/admin-template/pages/user.html)
 	Voici la page pour modifier un seul utilisateur.
+	
+
+ - [La gestioon d'un support](https://faustinm.github.io/admin-template/pages/support.html)
+	Si vous voulez un système de ticket vous pouvez vous inspirez de cette page
+	
 
 ## La partie JavaScript
 Il y a un fichier JavaScript utilisé pour quelques éléments comme le burger de navigation sur mobile ou les menus de complétion sur les champs de texte

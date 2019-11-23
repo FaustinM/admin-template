@@ -16,7 +16,7 @@ Ce projet est un template pour tous vos projets nécessitant un panel d'administ
 	Voici la page pour modifier un seul utilisateur.
 	
 
- - [La gestioon d'un support](https://faustinm.github.io/admin-template/pages/support.html)
+ - [La gestion d'un support](https://faustinm.github.io/admin-template/pages/support.html)
 	Si vous voulez un système de ticket vous pouvez vous inspirez de cette page
 	
 

@@ -1,0 +1,722 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>La page d'aministration</title>
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css" rel="stylesheet"/>
+    <link href="../css/common.css" rel="stylesheet"/>
+    <script src="../js/common.js"></script>
+</head>
+
+<body>
+
+<nav aria-label="main navigation" class="navbar" role="navigation">
+
+    <div class="navbar-brand">
+        <a class="navbar-item" href="https://bulma.io">
+            <img alt="logo" height="28" src="https://bulma.io/images/bulma-logo.png" width="112">
+        </a>
+
+        <a aria-expanded="false" aria-label="menu" class="navbar-burger burger" id="navbar-burger" onclick="toggleNavBurger()" role="button">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+
+    <div class="navbar-menu" id="navbar-menu">
+        <div class="navbar-start">
+            <a href="../admin.html" class="navbar-item">
+                Accueil
+            </a>
+
+            <a class="navbar-item" href="../pages/users.html">
+                <i class="fas iconMargin fa-user"></i>Utilisateurs
+            </a>
+            <a class="navbar-item" href="../pages/support.html">
+                <i class="fas iconMargin fa-life-ring"></i>Support
+            </a>
+
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">
+                    <i class="fas iconMargin fa-shield-alt"></i>Securité
+                </a>
+
+                <div class="navbar-dropdown">
+                    <a class="navbar-item">
+                        Accès
+                    </a>
+                    <a class="navbar-item">
+                        Blacklist
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="navbar-end">
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a id="bell" class="navbar-link is-arrowless notifBell">
+                    <i class="fas iconMargin fa-bell"></i>
+                </a>
+
+                <div class="navbar-dropdown is-right">
+                    <a onclick="toggleBell()" class="navbar-item">
+                        <i class="fas iconMargin fa-eye-slash"></i>Activer/Désactiver les notifications
+                    </a>
+                </div>
+            </div>
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">
+                    <figure class="is-hidden-touch image" id="profile-image">
+                        <img class="is-hidden-touch is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+                    </figure>
+                    Bienvenue, Faustin !
+                </a>
+
+                <div class="navbar-dropdown is-right">
+                    <a class="navbar-item">
+                        <i class="fas iconMargin fa-user"></i>Détail de mon compte
+                    </a>
+                    <a class="navbar-item">
+                        <i class="fas iconMargin fa-sliders-h"></i>Réglages
+                    </a>
+                    <a class="navbar-item has-text-danger">
+                        <i class="fas iconMargin fa-sign-out-alt"></i>Déconnexion
+                    </a>
+                    <hr class="navbar-divider">
+                    <div class="navbar-item">
+                        Panel par Faustin
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div id="statut">
+    <section class="hero is-bold is-primary">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    Bienvenue sur la système de ticket !
+                </h1>
+                <h2 class="subtitle">
+                    Tout va bien !
+                </h2>
+            </div>
+        </div>
+    </section>
+    <section class="hero is-bold is-warning is-hide">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    Bienvenue sur la système de ticket !
+                </h1>
+                <h2 class="subtitle">
+                    Quelques problèmes sont à déplorer... (je sais pas)
+                </h2>
+            </div>
+        </div>
+    </section>
+    <section class="hero is-bold is-danger is-hide">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    Bienvenue sur la système de ticket !
+                </h1>
+                <h2 class="subtitle">
+                    Le service est dans le mal ! (je sais pas)
+                </h2>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+<link href="https://cdn.jsdelivr.net/npm/bulma-tooltip@3.0.2/dist/css/bulma-tooltip.min.css" rel="stylesheet"/>
+<div id="support-content" class="container">
+    <div class="columns">
+        <div class="column is-3">
+    <aside class="stickyBar menu is-hidden-mobile">
+        <p class="menu-label">
+            Général
+        </p>
+        <ul class="menu-list">
+            <li><a data-count="1" class="is-active notRead"><i class="fas iconMargin fa-users"></i>Vous</a></li>
+            <li><a data-count="6" class="notRead"><i class="fas iconMargin fa-file"></i>Non attribué</a></li>
+            <li><a><i class="fas iconMargin fa-archive"></i>Archive</a></li>
+            <li><a><i class="fas iconMargin fa-minus-circle"></i>Spam</a></li>
+            <li><a><i class="fas iconMargin fa-folder-open"></i>Tous les tickets</a></li>
+        </ul>
+        <br>
+        <br>
+        <p class="menu-label">
+            Tag
+        </p>
+        <ul class="menu-list">
+            <li><a class="has-text-yellow"><i class="fas iconMargin fa-circle"></i>Feedback</a></li>
+            <li><a class="has-text-primary" id="support-tag-driver"><i class="fas iconMargin fa-circle"></i>Driver</a></li>
+            <li><a class="has-text-warning"><i class="fas iconMargin fa-circle"></i>Login</a></li>
+            <li><a class="has-text-danger"><i class="fas iconMargin fa-circle"></i>Priorité</a></li>
+        </ul>
+    </aside>
+</div>
+
+        <div class="column is-9">
+            <table class="table is-fullwidth is-hoverable">
+                <thead>
+                <tr>
+                    <th id="support-check"></th>
+                    <th>ID</th>
+                    <th>Par</th>
+                    <th id="support-desc">Description</th>
+                    <th>Assigné</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tfoot>
+                <tr>
+                    <th class="total">Total : 4</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                </tfoot>
+                <tbody>
+                <tr class="">
+    <th><input type="checkbox"></th>
+    <th>#1</th>
+    <td>Paul</td>
+    <td>Ma base a été //cut :&#39;(
+        
+            <span style="margin-left: 1%" class="tag is-info">Non Lu</span>
+        
+    </td>
+    <td>
+        <figure class="profileImages columns image">
+            
+            <div class="assignImg column " data-tooltip="Faustin"><img class="is-rounded" src="https://eu.ui-avatars.com/api/?name=Faustin&amp;size=128"></div>
+            
+            <div class="assignImg column has-tooltip-info" data-tooltip="Support Jeu"><img class="is-rounded" src="https://eu.ui-avatars.com/api/?name=Support+Jeu&amp;size=128"></div>
+            
+        </figure>
+    </td>
+    <td class="verticalDot">•••</td>
+</tr>
+
+                <tr class="">
+    <th><input type="checkbox"></th>
+    <th>#2</th>
+    <td>Paul</td>
+    <td>Ma base a été //cut :&#39;(
+        
+            <span style="margin-left: 1%" class="tag is-info">Non Lu</span>
+        
+    </td>
+    <td>
+        <figure class="profileImages columns image">
+            
+            <div class="assignImg column " data-tooltip="Faustin"><img class="is-rounded" src="https://eu.ui-avatars.com/api/?name=Faustin&amp;size=128"></div>
+            
+            <div class="assignImg column has-tooltip-info" data-tooltip="Support Jeu"><img class="is-rounded" src="https://eu.ui-avatars.com/api/?name=Support+Jeu&amp;size=128"></div>
+            
+        </figure>
+    </td>
+    <td class="verticalDot">•••</td>
+</tr>
+
+                <tr class="">
+    <th><input type="checkbox"></th>
+    <th>#4</th>
+    <td>Paul</td>
+    <td>Ma base a été //cut :&#39;(
+        
+            <span style="margin-left: 1%" class="tag is-info">Non Lu</span>
+        
+    </td>
+    <td>
+        <figure class="profileImages columns image">
+            
+            <div class="assignImg column " data-tooltip="Faustin"><img class="is-rounded" src="https://eu.ui-avatars.com/api/?name=Faustin&amp;size=128"></div>
+            
+            <div class="assignImg column has-tooltip-info" data-tooltip="Support Jeu"><img class="is-rounded" src="https://eu.ui-avatars.com/api/?name=Support+Jeu&amp;size=128"></div>
+            
+        </figure>
+    </td>
+    <td class="verticalDot">•••</td>
+</tr>
+
+                <tr class="">
+    <th><input type="checkbox"></th>
+    <th>#16</th>
+    <td>Paul</td>
+    <td>Ma base a été //cut :&#39;(
+        
+            <span style="margin-left: 1%" class="tag is-info">Non Lu</span>
+        
+    </td>
+    <td>
+        <figure class="profileImages columns image">
+            
+            <div class="assignImg column " data-tooltip="Faustin"><img class="is-rounded" src="https://eu.ui-avatars.com/api/?name=Faustin&amp;size=128"></div>
+            
+            <div class="assignImg column has-tooltip-info" data-tooltip="Support Jeu"><img class="is-rounded" src="https://eu.ui-avatars.com/api/?name=Support+Jeu&amp;size=128"></div>
+            
+        </figure>
+    </td>
+    <td class="verticalDot">•••</td>
+</tr>
+
+                <tr class="">
+    <th><input type="checkbox"><i title="Prioritaire" class="fa supportIconTable fa-crown"></i></th>
+    <th>#3</th>
+    <td>Jack</td>
+    <td>sa march pas !!! il ya ecri téléchargez java c koi ?! UN VIRUS :/
+        
+            <span style="margin-left: 1%" class="tag is-warning">Aucune réponse</span>
+        
+    </td>
+    <td>
+        <figure class="profileImages columns image">
+            
+            <div class="assignImg column " data-tooltip="Arkya29"><img class="is-rounded" src="https://eu.ui-avatars.com/api/?name=Arkya29&amp;size=128"></div>
+            
+            <div class="assignImg column has-tooltip-info" data-tooltip="Support Launcher"><img class="is-rounded" src="https://eu.ui-avatars.com/api/?name=Support+Launcher&amp;size=128"></div>
+            
+            <div class="assignImg column has-tooltip-info" data-tooltip="Support Launcher Windows"><img class="is-rounded" src="https://eu.ui-avatars.com/api/?name=Support+Launcher+Windows&amp;size=128"></div>
+            
+        </figure>
+    </td>
+    <td class="verticalDot">•••</td>
+</tr>
+
+                <tr class="">
+    <th><input type="checkbox"><i title="Prioritaire" class="fa supportIconTable fa-crown"></i></th>
+    <th>#3</th>
+    <td>Jack</td>
+    <td>sa march pas !!! il ya ecri téléchargez java c koi ?! UN VIRUS :/
+        
+            <span style="margin-left: 1%" class="tag is-warning">Aucune réponse</span>
+        
+    </td>
+    <td>
+        <figure class="profileImages columns image">
+            
+            <div class="assignImg column " data-tooltip="Arkya29"><img class="is-rounded" src="https://eu.ui-avatars.com/api/?name=Arkya29&amp;size=128"></div>
+            
+            <div class="assignImg column has-tooltip-info" data-tooltip="Support Launcher"><img class="is-rounded" src="https://eu.ui-avatars.com/api/?name=Support+Launcher&amp;size=128"></div>
+            
+            <div class="assignImg column has-tooltip-info" data-tooltip="Support Launcher Windows"><img class="is-rounded" src="https://eu.ui-avatars.com/api/?name=Support+Launcher+Windows&amp;size=128"></div>
+            
+        </figure>
+    </td>
+    <td class="verticalDot">•••</td>
+</tr>
+
+                <tr class="">
+    <th><input type="checkbox"><i title="Prioritaire" class="fa supportIconTable fa-crown"></i></th>
+    <th>#3</th>
+    <td>Jack</td>
+    <td>sa march pas !!! il ya ecri téléchargez java c koi ?! UN VIRUS :/
+        
+            <span style="margin-left: 1%" class="tag is-warning">Aucune réponse</span>
+        
+    </td>
+    <td>
+        <figure class="profileImages columns image">
+            
+            <div class="assignImg column " data-tooltip="Arkya29"><img class="is-rounded" src="https://eu.ui-avatars.com/api/?name=Arkya29&amp;size=128"></div>
+            
+            <div class="assignImg column has-tooltip-info" data-tooltip="Support Launcher"><img class="is-rounded" src="https://eu.ui-avatars.com/api/?name=Support+Launcher&amp;size=128"></div>
+            
+            <div class="assignImg column has-tooltip-info" data-tooltip="Support Launcher Windows"><img class="is-rounded" src="https://eu.ui-avatars.com/api/?name=Support+Launcher+Windows&amp;size=128"></div>
+            
+        </figure>
+    </td>
+    <td class="verticalDot">•••</td>
+</tr>
+
+                <tr class="">
+    <th><input type="checkbox"></th>
+    <th>#18</th>
+    <td>Marc</td>
+    <td>En attente de la récéption de mon grade...
+        
+            <span style="margin-left: 1%" class="tag is-danger">Paiment</span>
+        
+    </td>
+    <td>
+        <figure class="profileImages columns image">
+            
+            <div class="assignImg column " data-tooltip="Milan"><img class="is-rounded" src="https://eu.ui-avatars.com/api/?name=Milan&amp;size=128"></div>
+            
+            <div class="assignImg column has-tooltip-info" data-tooltip="Support Boutique"><img class="is-rounded" src="https://eu.ui-avatars.com/api/?name=Support+Boutique&amp;size=128"></div>
+            
+        </figure>
+    </td>
+    <td class="verticalDot">•••</td>
+</tr>
+
+                <tr class="">
+    <th><input type="checkbox"></th>
+    <th>#15</th>
+    <td>Marc</td>
+    <td>En attente de la récéption de mon grade...
+        
+            <span style="margin-left: 1%" class="tag is-danger">Paiment</span>
+        
+    </td>
+    <td>
+        <figure class="profileImages columns image">
+            
+            <div class="assignImg column " data-tooltip="Milan"><img class="is-rounded" src="https://eu.ui-avatars.com/api/?name=Milan&amp;size=128"></div>
+            
+            <div class="assignImg column has-tooltip-info" data-tooltip="Support Boutique"><img class="is-rounded" src="https://eu.ui-avatars.com/api/?name=Support+Boutique&amp;size=128"></div>
+            
+        </figure>
+    </td>
+    <td class="verticalDot">•••</td>
+</tr>
+
+                <tr class="">
+    <th><input type="checkbox"></th>
+    <th>#114</th>
+    <td>Marc</td>
+    <td>En attente de la récéption de mon grade...
+        
+            <span style="margin-left: 1%" class="tag is-danger">Paiment</span>
+        
+    </td>
+    <td>
+        <figure class="profileImages columns image">
+            
+            <div class="assignImg column " data-tooltip="Milan"><img class="is-rounded" src="https://eu.ui-avatars.com/api/?name=Milan&amp;size=128"></div>
+            
+            <div class="assignImg column has-tooltip-info" data-tooltip="Support Boutique"><img class="is-rounded" src="https://eu.ui-avatars.com/api/?name=Support+Boutique&amp;size=128"></div>
+            
+        </figure>
+    </td>
+    <td class="verticalDot">•••</td>
+</tr>
+
+                <tr class="">
+    <th><input type="checkbox"></th>
+    <th>#15</th>
+    <td>Marc</td>
+    <td>En attente de la récéption de mon grade...
+        
+            <span style="margin-left: 1%" class="tag is-danger">Paiment</span>
+        
+    </td>
+    <td>
+        <figure class="profileImages columns image">
+            
+            <div class="assignImg column " data-tooltip="Milan"><img class="is-rounded" src="https://eu.ui-avatars.com/api/?name=Milan&amp;size=128"></div>
+            
+            <div class="assignImg column has-tooltip-info" data-tooltip="Support Boutique"><img class="is-rounded" src="https://eu.ui-avatars.com/api/?name=Support+Boutique&amp;size=128"></div>
+            
+        </figure>
+    </td>
+    <td class="verticalDot">•••</td>
+</tr>
+
+                <tr class="">
+    <th><input type="checkbox"></th>
+    <th>#15</th>
+    <td>Marc</td>
+    <td>En attente de la récéption de mon grade...
+        
+            <span style="margin-left: 1%" class="tag is-danger">Paiment</span>
+        
+    </td>
+    <td>
+        <figure class="profileImages columns image">
+            
+            <div class="assignImg column " data-tooltip="Milan"><img class="is-rounded" src="https://eu.ui-avatars.com/api/?name=Milan&amp;size=128"></div>
+            
+            <div class="assignImg column has-tooltip-info" data-tooltip="Support Boutique"><img class="is-rounded" src="https://eu.ui-avatars.com/api/?name=Support+Boutique&amp;size=128"></div>
+            
+        </figure>
+    </td>
+    <td class="verticalDot">•••</td>
+</tr>
+
+                <tr class="">
+    <th><input type="checkbox"></th>
+    <th>#15</th>
+    <td>Marc</td>
+    <td>En attente de la récéption de mon grade...
+        
+            <span style="margin-left: 1%" class="tag is-danger">Paiment</span>
+        
+    </td>
+    <td>
+        <figure class="profileImages columns image">
+            
+            <div class="assignImg column " data-tooltip="Milan"><img class="is-rounded" src="https://eu.ui-avatars.com/api/?name=Milan&amp;size=128"></div>
+            
+            <div class="assignImg column has-tooltip-info" data-tooltip="Support Boutique"><img class="is-rounded" src="https://eu.ui-avatars.com/api/?name=Support+Boutique&amp;size=128"></div>
+            
+        </figure>
+    </td>
+    <td class="verticalDot">•••</td>
+</tr>
+
+                <tr class="">
+    <th><input type="checkbox"></th>
+    <th>#15</th>
+    <td>Marc</td>
+    <td>En attente de la récéption de mon grade...
+        
+            <span style="margin-left: 1%" class="tag is-danger">Paiment</span>
+        
+    </td>
+    <td>
+        <figure class="profileImages columns image">
+            
+            <div class="assignImg column " data-tooltip="Milan"><img class="is-rounded" src="https://eu.ui-avatars.com/api/?name=Milan&amp;size=128"></div>
+            
+            <div class="assignImg column has-tooltip-info" data-tooltip="Support Boutique"><img class="is-rounded" src="https://eu.ui-avatars.com/api/?name=Support+Boutique&amp;size=128"></div>
+            
+        </figure>
+    </td>
+    <td class="verticalDot">•••</td>
+</tr>
+
+                <tr class="">
+    <th><input type="checkbox"></th>
+    <th>#48</th>
+    <td>xX_Corentin_Xx</td>
+    <td>Aled ! C marche pas !
+        
+            <span style="margin-left: 1%" class="tag is-primary">Driver</span>
+        
+    </td>
+    <td>
+        <figure class="profileImages columns image">
+            
+            <div class="assignImg column " data-tooltip="WelsyMC"><img class="is-rounded" src="https://eu.ui-avatars.com/api/?name=WelsyMC&amp;size=128"></div>
+            
+            <div class="assignImg column has-tooltip-info" data-tooltip="Support Jeu"><img class="is-rounded" src="https://eu.ui-avatars.com/api/?name=Support+Jeu&amp;size=128"></div>
+            
+            <div class="assignImg column has-tooltip-info" data-tooltip="Support Launcher Mac"><img class="is-rounded" src="https://eu.ui-avatars.com/api/?name=Support+Launcher+Mac&amp;size=128"></div>
+            
+        </figure>
+    </td>
+    <td class="verticalDot">•••</td>
+</tr>
+
+                <tr class="">
+    <th><input type="checkbox"></th>
+    <th>#48</th>
+    <td>xX_Corentin_Xx</td>
+    <td>Aled ! C marche pas !
+        
+            <span style="margin-left: 1%" class="tag is-primary">Driver</span>
+        
+    </td>
+    <td>
+        <figure class="profileImages columns image">
+            
+            <div class="assignImg column " data-tooltip="WelsyMC"><img class="is-rounded" src="https://eu.ui-avatars.com/api/?name=WelsyMC&amp;size=128"></div>
+            
+            <div class="assignImg column has-tooltip-info" data-tooltip="Support Jeu"><img class="is-rounded" src="https://eu.ui-avatars.com/api/?name=Support+Jeu&amp;size=128"></div>
+            
+            <div class="assignImg column has-tooltip-info" data-tooltip="Support Launcher Mac"><img class="is-rounded" src="https://eu.ui-avatars.com/api/?name=Support+Launcher+Mac&amp;size=128"></div>
+            
+        </figure>
+    </td>
+    <td class="verticalDot">•••</td>
+</tr>
+
+                <tr class="">
+    <th><input type="checkbox"></th>
+    <th>#48</th>
+    <td>xX_Corentin_Xx</td>
+    <td>Aled ! C marche pas !
+        
+            <span style="margin-left: 1%" class="tag is-primary">Driver</span>
+        
+    </td>
+    <td>
+        <figure class="profileImages columns image">
+            
+            <div class="assignImg column " data-tooltip="WelsyMC"><img class="is-rounded" src="https://eu.ui-avatars.com/api/?name=WelsyMC&amp;size=128"></div>
+            
+            <div class="assignImg column has-tooltip-info" data-tooltip="Support Jeu"><img class="is-rounded" src="https://eu.ui-avatars.com/api/?name=Support+Jeu&amp;size=128"></div>
+            
+            <div class="assignImg column has-tooltip-info" data-tooltip="Support Launcher Mac"><img class="is-rounded" src="https://eu.ui-avatars.com/api/?name=Support+Launcher+Mac&amp;size=128"></div>
+            
+        </figure>
+    </td>
+    <td class="verticalDot">•••</td>
+</tr>
+
+                <tr class="">
+    <th><input type="checkbox"></th>
+    <th>#48</th>
+    <td>xX_Corentin_Xx</td>
+    <td>Aled ! C marche pas !
+        
+            <span style="margin-left: 1%" class="tag is-primary">Driver</span>
+        
+    </td>
+    <td>
+        <figure class="profileImages columns image">
+            
+            <div class="assignImg column " data-tooltip="WelsyMC"><img class="is-rounded" src="https://eu.ui-avatars.com/api/?name=WelsyMC&amp;size=128"></div>
+            
+            <div class="assignImg column has-tooltip-info" data-tooltip="Support Jeu"><img class="is-rounded" src="https://eu.ui-avatars.com/api/?name=Support+Jeu&amp;size=128"></div>
+            
+            <div class="assignImg column has-tooltip-info" data-tooltip="Support Launcher Mac"><img class="is-rounded" src="https://eu.ui-avatars.com/api/?name=Support+Launcher+Mac&amp;size=128"></div>
+            
+        </figure>
+    </td>
+    <td class="verticalDot">•••</td>
+</tr>
+
+                <tr class="">
+    <th><input type="checkbox"></th>
+    <th>#48</th>
+    <td>xX_Corentin_Xx</td>
+    <td>Aled ! C marche pas !
+        
+            <span style="margin-left: 1%" class="tag is-primary">Driver</span>
+        
+    </td>
+    <td>
+        <figure class="profileImages columns image">
+            
+            <div class="assignImg column " data-tooltip="WelsyMC"><img class="is-rounded" src="https://eu.ui-avatars.com/api/?name=WelsyMC&amp;size=128"></div>
+            
+            <div class="assignImg column has-tooltip-info" data-tooltip="Support Jeu"><img class="is-rounded" src="https://eu.ui-avatars.com/api/?name=Support+Jeu&amp;size=128"></div>
+            
+            <div class="assignImg column has-tooltip-info" data-tooltip="Support Launcher Mac"><img class="is-rounded" src="https://eu.ui-avatars.com/api/?name=Support+Launcher+Mac&amp;size=128"></div>
+            
+        </figure>
+    </td>
+    <td class="verticalDot">•••</td>
+</tr>
+
+                <tr class="">
+    <th><input type="checkbox"></th>
+    <th>#48</th>
+    <td>REMPLIR</td>
+    <td>MESSAGE POUR REMPLIR. Descendez en bas pour un autre effet
+        
+            <span style="margin-left: 1%" class="tag is-primary">Driver</span>
+        
+    </td>
+    <td>
+        <figure class="profileImages columns image">
+            
+            <div class="assignImg column " data-tooltip="WelsyMC"><img class="is-rounded" src="https://eu.ui-avatars.com/api/?name=WelsyMC&amp;size=128"></div>
+            
+            <div class="assignImg column has-tooltip-info" data-tooltip="Support Jeu"><img class="is-rounded" src="https://eu.ui-avatars.com/api/?name=Support+Jeu&amp;size=128"></div>
+            
+            <div class="assignImg column has-tooltip-info" data-tooltip="Support Launcher Mac"><img class="is-rounded" src="https://eu.ui-avatars.com/api/?name=Support+Launcher+Mac&amp;size=128"></div>
+            
+        </figure>
+    </td>
+    <td class="verticalDot">•••</td>
+</tr>
+
+                <tr class="">
+    <th><input type="checkbox"></th>
+    <th>#48</th>
+    <td>REMPLIR</td>
+    <td>MESSAGE POUR REMPLIR. Descendez en bas pour un autre effet
+        
+            <span style="margin-left: 1%" class="tag is-primary">Driver</span>
+        
+    </td>
+    <td>
+        <figure class="profileImages columns image">
+            
+            <div class="assignImg column " data-tooltip="WelsyMC"><img class="is-rounded" src="https://eu.ui-avatars.com/api/?name=WelsyMC&amp;size=128"></div>
+            
+            <div class="assignImg column has-tooltip-info" data-tooltip="Support Jeu"><img class="is-rounded" src="https://eu.ui-avatars.com/api/?name=Support+Jeu&amp;size=128"></div>
+            
+            <div class="assignImg column has-tooltip-info" data-tooltip="Support Launcher Mac"><img class="is-rounded" src="https://eu.ui-avatars.com/api/?name=Support+Launcher+Mac&amp;size=128"></div>
+            
+        </figure>
+    </td>
+    <td class="verticalDot">•••</td>
+</tr>
+
+                <tr class="">
+    <th><input type="checkbox"></th>
+    <th>#48</th>
+    <td>REMPLIR</td>
+    <td>MESSAGE POUR REMPLIR. Descendez en bas pour un autre effet
+        
+            <span style="margin-left: 1%" class="tag is-primary">Driver</span>
+        
+    </td>
+    <td>
+        <figure class="profileImages columns image">
+            
+            <div class="assignImg column " data-tooltip="WelsyMC"><img class="is-rounded" src="https://eu.ui-avatars.com/api/?name=WelsyMC&amp;size=128"></div>
+            
+            <div class="assignImg column has-tooltip-info" data-tooltip="Support Jeu"><img class="is-rounded" src="https://eu.ui-avatars.com/api/?name=Support+Jeu&amp;size=128"></div>
+            
+            <div class="assignImg column has-tooltip-info" data-tooltip="Support Launcher Mac"><img class="is-rounded" src="https://eu.ui-avatars.com/api/?name=Support+Launcher+Mac&amp;size=128"></div>
+            
+        </figure>
+    </td>
+    <td class="verticalDot">•••</td>
+</tr>
+
+                <tr class="">
+    <th><input type="checkbox"></th>
+    <th>#48</th>
+    <td>REMPLIR</td>
+    <td>MESSAGE POUR REMPLIR. Descendez en bas pour un autre effet
+        
+            <span style="margin-left: 1%" class="tag is-primary">Driver</span>
+        
+    </td>
+    <td>
+        <figure class="profileImages columns image">
+            
+            <div class="assignImg column " data-tooltip="WelsyMC"><img class="is-rounded" src="https://eu.ui-avatars.com/api/?name=WelsyMC&amp;size=128"></div>
+            
+            <div class="assignImg column has-tooltip-info" data-tooltip="Support Jeu"><img class="is-rounded" src="https://eu.ui-avatars.com/api/?name=Support+Jeu&amp;size=128"></div>
+            
+            <div class="assignImg column has-tooltip-info" data-tooltip="Support Launcher Mac"><img class="is-rounded" src="https://eu.ui-avatars.com/api/?name=Support+Launcher+Mac&amp;size=128"></div>
+            
+        </figure>
+    </td>
+    <td class="verticalDot">•••</td>
+</tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="dropdown-menu" id="contextMenu" role="menu">
+        <div class="dropdown-content">
+            <a class="dropdown-item has-text-danger" onclick="">
+                <i class="fas iconMargin fa-ban"></i>Fermer
+            </a>
+            <a class="dropdown-item" onclick="">
+                <i class="fas iconMargin fa-reply"></i>Réponse rapide
+            </a>
+            <a class="dropdown-item" onclick="">
+                <i class="fas iconMargin fa-concierge-bell"></i>Assigner à
+            </a>
+            <a class="dropdown-item" onclick="">
+                <i class="fas iconMargin fa-tag"></i>Tagger
+            </a>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

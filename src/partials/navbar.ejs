@@ -1,0 +1,90 @@
+<%
+if(PATH.includes("pages")){
+    var PATHROOT = ".."
+} else {
+    var PATHROOT = "."
+}
+%>
+<nav aria-label="main navigation" class="navbar" role="navigation">
+
+    <div class="navbar-brand">
+        <a class="navbar-item" href="https://bulma.io">
+            <img alt="logo" height="28" src="https://bulma.io/images/bulma-logo.png" width="112">
+        </a>
+
+        <a aria-expanded="false" aria-label="menu" class="navbar-burger burger" id="navbar-burger" onclick="toggleNavBurger()" role="button">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+
+    <div class="navbar-menu" id="navbar-menu">
+        <div class="navbar-start">
+            <a href="<%=PATHROOT%>/admin.html" class="navbar-item">
+                Accueil
+            </a>
+
+            <a class="navbar-item" href="<%=PATHROOT%>/pages/users.html">
+                <i class="fas iconMargin fa-user"></i>Utilisateurs
+            </a>
+            <a class="navbar-item" href="<%=PATHROOT%>/pages/support.html">
+                <i class="fas iconMargin fa-life-ring"></i>Support
+            </a>
+
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">
+                    <i class="fas iconMargin fa-shield-alt"></i>Securité
+                </a>
+
+                <div class="navbar-dropdown">
+                    <a class="navbar-item">
+                        Accès
+                    </a>
+                    <a class="navbar-item">
+                        Blacklist
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="navbar-end">
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a id="bell" class="navbar-link is-arrowless notifBell">
+                    <i class="fas iconMargin fa-bell"></i>
+                </a>
+
+                <div class="navbar-dropdown is-right">
+                    <a onclick="toggleBell()" class="navbar-item">
+                        <i class="fas iconMargin fa-eye-slash"></i>Activer/Désactiver les notifications
+                    </a>
+                </div>
+            </div>
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">
+                    <figure class="is-hidden-touch image" id="profile-image">
+                        <img class="is-hidden-touch is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+                    </figure>
+                    Bienvenue, Faustin !
+                </a>
+
+                <div class="navbar-dropdown is-right">
+                    <a class="navbar-item">
+                        <i class="fas iconMargin fa-user"></i>Détail de mon compte
+                    </a>
+                    <a class="navbar-item">
+                        <i class="fas iconMargin fa-sliders-h"></i>Réglages
+                    </a>
+                    <a class="navbar-item has-text-danger">
+                        <i class="fas iconMargin fa-sign-out-alt"></i>Déconnexion
+                    </a>
+                    <hr class="navbar-divider">
+                    <div class="navbar-item">
+                        Panel par Faustin
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>

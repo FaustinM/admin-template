@@ -1,17 +1,20 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>La page d'aministration 0_0</title>
+    <title>La page d'aministration</title>
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css" rel="stylesheet" />
-    <link href="css/common.css" rel="stylesheet"/>
-    <script src="js/common.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css" rel="stylesheet"/>
+    <link href="./css/common.css" rel="stylesheet"/>
+    <script src="./js/common.js"></script>
 </head>
+
 <body>
 
 <nav aria-label="main navigation" class="navbar" role="navigation">
+
     <div class="navbar-brand">
         <a class="navbar-item" href="https://bulma.io">
             <img alt="logo" height="28" src="https://bulma.io/images/bulma-logo.png" width="112">
@@ -26,12 +29,15 @@
 
     <div class="navbar-menu" id="navbar-menu">
         <div class="navbar-start">
-            <a class="navbar-item">
+            <a href="./admin.html" class="navbar-item">
                 Accueil
             </a>
 
-            <a class="navbar-item" href="pages/users.html">
+            <a class="navbar-item" href="./pages/users.html">
                 <i class="fas iconMargin fa-user"></i>Utilisateurs
+            </a>
+            <a class="navbar-item" href="./pages/support.html">
+                <i class="fas iconMargin fa-life-ring"></i>Support
             </a>
 
             <div class="navbar-item has-dropdown is-hoverable">
@@ -52,6 +58,17 @@
         </div>
 
         <div class="navbar-end">
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a id="bell" class="navbar-link is-arrowless notifBell">
+                    <i class="fas iconMargin fa-bell"></i>
+                </a>
+
+                <div class="navbar-dropdown is-right">
+                    <a onclick="toggleBell()" class="navbar-item">
+                        <i class="fas iconMargin fa-eye-slash"></i>Activer/Désactiver les notifications
+                    </a>
+                </div>
+            </div>
             <div class="navbar-item has-dropdown is-hoverable">
                 <a class="navbar-link">
                     <figure class="is-hidden-touch image" id="profile-image">
@@ -79,12 +96,13 @@
         </div>
     </div>
 </nav>
+
 <div id="statut">
     <section class="hero is-bold is-primary">
         <div class="hero-body">
             <div class="container">
                 <h1 class="title">
-                    Bienvenue sur le panel d'administration !
+                    Bienvenue sur le panel d&#39;administration !
                 </h1>
                 <h2 class="subtitle">
                     Tout va bien !
@@ -96,10 +114,10 @@
         <div class="hero-body">
             <div class="container">
                 <h1 class="title">
-                    Bienvenue sur le panel d'administration !
+                    Bienvenue sur le panel d&#39;administration !
                 </h1>
                 <h2 class="subtitle">
-                    Quelques problèmes sont à déplorer... (raison)
+                    Quelques problèmes sont à déplorer... (je sais pas)
                 </h2>
             </div>
         </div>
@@ -108,41 +126,18 @@
         <div class="hero-body">
             <div class="container">
                 <h1 class="title">
-                    Bienvenue sur le panel d'administration !
+                    Bienvenue sur le panel d&#39;administration !
                 </h1>
                 <h2 class="subtitle">
-                    Le service est dans le mal ! (raison)
+                    Le service est dans le mal ! (je sais pas)
                 </h2>
             </div>
         </div>
     </section>
 </div>
-<div class="tile is-ancestor has-text-centered" id="numberList">
-    <div class="tile is-parent">
-        <article class="tile notification is-bold is-child box is-primary">
-            <p class="subtitle">Utilisateurs</p>
-            <p class="title">1000</p>
-        </article>
-    </div>
-    <div class="tile is-parent">
-        <article class="tile notification is-bold is-primary is-child box">
-            <p class="subtitle">Visiteurs quotidiens</p>
-            <p class="title">334k</p>
-        </article>
-    </div>
-    <div class="tile is-parent">
-        <article class="tile notification is-warning is-bold is-child box">
-            <p class="subtitle">Rapports</p>
-            <p class="title">2</p>
-        </article>
-    </div>
-    <div class="tile is-parent">
-        <article class="tile is-child notification is-danger is-bold box">
-            <p class="subtitle">Erreurs</p>
-            <p class="title">4</p>
-        </article>
-    </div>
-</div>
+
+
+
 <div class="columns" id="content">
     <div class="column is-6">
         <div class="box">

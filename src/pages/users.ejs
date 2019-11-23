@@ -1,0 +1,69 @@
+<%- include("../partials/header.ejs", {src : {css: "../css/common.css", js: "../js/common.js"}, statut : {raison: "je sais pas", title: "la gestion des utilisateurs"}}) %>
+
+<div id="content">
+    <nav class="level" id="bottom">
+        <div class="level-left">
+            <p class="title">Liste des utilisateurs</p>
+        </div>
+        <div class="level-right">
+            <div id="searchBoxAccount" class="level-item control has-icons-left has-icons-right">
+                <input class="input is-normal" onblur="toggleDropdown()" onfocus="toggleDropdown()" placeholder="Pseudo"
+                       type="text">
+                <span class="icon is-medium is-left">
+                    <i class="fa fa-search"></i>
+                </span>
+                <span class="icon is-medium is-right">
+                  <i class="fa fa-check"></i>
+                </span>
+                <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                    <div class="dropdown-content">
+                        <a class="dropdown-item" href="#">
+                            Dropdown item
+                        </a>
+                        <a class="dropdown-item">
+                            Other dropdown item
+                        </a>
+                        <a class="dropdown-item" href="#">
+                            Other dropdown item
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <hr class="dropdown-divider" id="dividerBoxAccountSearch">
+    <table class="fill table is-fullwidth">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Photo de profile</th>
+                <th>Pseudo</th>
+                <th>Email</th>
+                <th class="text-center">Hash</th>
+                <th>Rôle</th>
+                <th class="text-center">Edit</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>Total : 4</th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </tfoot>
+        <tbody>
+            <%- include("../partials/table/user.ejs", {user : {id : 1, img: "../image/128x128.png", name : "Faustin", email : "faustino40@outlook.fr", role : "<span class='icon'><i class='fas fa-crown'></i></span>Administrateur"}}) %>
+            <%- include("../partials/table/user.ejs", {user : {id : 2, img: "../image/128x128.png", name : "Albert", email : "albert@example.com", role : 'Utilisateur'}}) %>
+            <%- include("../partials/table/user.ejs", {user : {id : 3, img: "../image/128x128.png", name : "Rene", email : "rene@example.com", role : "<span class='icon'><i class='fas fa-gavel'></i></span>Modérateur"}}) %>
+            <%- include("../partials/table/user.ejs", {user : {id : 4, img: "../image/128x128.png", name : "Layla", email : "layla@example.com", role : "<span class='has-text-danger'>Banni</span>"}}) %>
+        </tbody>
+    </table>
+</div>
+
+
+</body>
+</html>

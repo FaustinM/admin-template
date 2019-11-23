@@ -1,0 +1,75 @@
+<%- include("../partials/header.ejs", {src : {css: "../css/common.css", js: "../js/common.js"}, statut : {raison: "je sais pas", title: "la système de ticket"}}) %>
+<link href="https://cdn.jsdelivr.net/npm/bulma-tooltip@3.0.2/dist/css/bulma-tooltip.min.css" rel="stylesheet"/>
+<div id="support-content" class="container">
+    <div class="columns">
+        <%- include("../partials/support/menu.ejs") %>
+        <div class="column is-9">
+            <table class="table is-fullwidth is-hoverable">
+                <thead>
+                <tr>
+                    <th id="support-check"></th>
+                    <th>ID</th>
+                    <th>Par</th>
+                    <th id="support-desc">Description</th>
+                    <th>Assigné</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tfoot>
+                <tr>
+                    <th class="total">Total : 4</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                </tfoot>
+                <tbody>
+                <%- include("../partials/table/support.ejs", {support : {id: "1", who:"Paul", excerpt:"Ma base a été //cut :'(", assign : [ {img : "https://eu.ui-avatars.com/api/?name=Faustin&size=128", name: "Faustin", group: false}, {img : "https://eu.ui-avatars.com/api/?name=Support+Jeu&size=128", name: "Support Jeu", group: true}], tags: [{text:"Non Lu", class:"is-info"}]}}) %>
+                <%- include("../partials/table/support.ejs", {support : {id: "2", who:"Paul", excerpt:"Ma base a été //cut :'(", assign : [ {img : "https://eu.ui-avatars.com/api/?name=Faustin&size=128", name: "Faustin", group: false}, {img : "https://eu.ui-avatars.com/api/?name=Support+Jeu&size=128", name: "Support Jeu", group: true}], tags: [{text:"Non Lu", class:"is-info"}]}}) %>
+                <%- include("../partials/table/support.ejs", {support : {id: "4", who:"Paul", excerpt:"Ma base a été //cut :'(", assign : [ {img : "https://eu.ui-avatars.com/api/?name=Faustin&size=128", name: "Faustin", group: false}, {img : "https://eu.ui-avatars.com/api/?name=Support+Jeu&size=128", name: "Support Jeu", group: true}], tags: [{text:"Non Lu", class:"is-info"}]}}) %>
+                <%- include("../partials/table/support.ejs", {support : {id: "16", who:"Paul", excerpt:"Ma base a été //cut :'(", assign : [ {img : "https://eu.ui-avatars.com/api/?name=Faustin&size=128", name: "Faustin", group: false}, {img : "https://eu.ui-avatars.com/api/?name=Support+Jeu&size=128", name: "Support Jeu", group: true}], tags: [{text:"Non Lu", class:"is-info"}]}}) %>
+                <%- include("../partials/table/support.ejs", {support : {id: "3", icon : "crown", iconInfo : "Prioritaire", who:"Jack", excerpt:"sa march pas !!! il ya ecri téléchargez java c koi ?! UN VIRUS :/", assign : [ {img : "https://eu.ui-avatars.com/api/?name=Arkya29&size=128", name: "Arkya29", group: false}, {img : "https://eu.ui-avatars.com/api/?name=Support+Launcher&size=128", name: "Support Launcher", group: true}, {img : "https://eu.ui-avatars.com/api/?name=Support+Launcher+Windows&size=128", name: "Support Launcher Windows", group: true} ], tags: [{text:"Aucune réponse", class:"is-warning"}]}}) %>
+                <%- include("../partials/table/support.ejs", {support : {id: "3", icon : "crown", iconInfo : "Prioritaire", who:"Jack", excerpt:"sa march pas !!! il ya ecri téléchargez java c koi ?! UN VIRUS :/", assign : [ {img : "https://eu.ui-avatars.com/api/?name=Arkya29&size=128", name: "Arkya29", group: false}, {img : "https://eu.ui-avatars.com/api/?name=Support+Launcher&size=128", name: "Support Launcher", group: true}, {img : "https://eu.ui-avatars.com/api/?name=Support+Launcher+Windows&size=128", name: "Support Launcher Windows", group: true} ], tags: [{text:"Aucune réponse", class:"is-warning"}]}}) %>
+                <%- include("../partials/table/support.ejs", {support : {id: "3", icon : "crown", iconInfo : "Prioritaire", who:"Jack", excerpt:"sa march pas !!! il ya ecri téléchargez java c koi ?! UN VIRUS :/", assign : [ {img : "https://eu.ui-avatars.com/api/?name=Arkya29&size=128", name: "Arkya29", group: false}, {img : "https://eu.ui-avatars.com/api/?name=Support+Launcher&size=128", name: "Support Launcher", group: true}, {img : "https://eu.ui-avatars.com/api/?name=Support+Launcher+Windows&size=128", name: "Support Launcher Windows", group: true} ], tags: [{text:"Aucune réponse", class:"is-warning"}]}}) %>
+                <%- include("../partials/table/support.ejs", {support : {id: "18", who:"Marc", excerpt:"En attente de la récéption de mon grade...", assign : [ {img : "https://eu.ui-avatars.com/api/?name=Milan&size=128", name: "Milan", group: false}, {img : "https://eu.ui-avatars.com/api/?name=Support+Boutique&size=128", name: "Support Boutique", group: true}], tags: [{text:"Paiment", class:"is-danger"}]}}) %>
+                <%- include("../partials/table/support.ejs", {support : {id: "15", who:"Marc", excerpt:"En attente de la récéption de mon grade...", assign : [ {img : "https://eu.ui-avatars.com/api/?name=Milan&size=128", name: "Milan", group: false}, {img : "https://eu.ui-avatars.com/api/?name=Support+Boutique&size=128", name: "Support Boutique", group: true}], tags: [{text:"Paiment", class:"is-danger"}]}}) %>
+                <%- include("../partials/table/support.ejs", {support : {id: "114", who:"Marc", excerpt:"En attente de la récéption de mon grade...", assign : [ {img : "https://eu.ui-avatars.com/api/?name=Milan&size=128", name: "Milan", group: false}, {img : "https://eu.ui-avatars.com/api/?name=Support+Boutique&size=128", name: "Support Boutique", group: true}], tags: [{text:"Paiment", class:"is-danger"}]}}) %>
+                <%- include("../partials/table/support.ejs", {support : {id: "15", who:"Marc", excerpt:"En attente de la récéption de mon grade...", assign : [ {img : "https://eu.ui-avatars.com/api/?name=Milan&size=128", name: "Milan", group: false}, {img : "https://eu.ui-avatars.com/api/?name=Support+Boutique&size=128", name: "Support Boutique", group: true}], tags: [{text:"Paiment", class:"is-danger"}]}}) %>
+                <%- include("../partials/table/support.ejs", {support : {id: "15", who:"Marc", excerpt:"En attente de la récéption de mon grade...", assign : [ {img : "https://eu.ui-avatars.com/api/?name=Milan&size=128", name: "Milan", group: false}, {img : "https://eu.ui-avatars.com/api/?name=Support+Boutique&size=128", name: "Support Boutique", group: true}], tags: [{text:"Paiment", class:"is-danger"}]}}) %>
+                <%- include("../partials/table/support.ejs", {support : {id: "15", who:"Marc", excerpt:"En attente de la récéption de mon grade...", assign : [ {img : "https://eu.ui-avatars.com/api/?name=Milan&size=128", name: "Milan", group: false}, {img : "https://eu.ui-avatars.com/api/?name=Support+Boutique&size=128", name: "Support Boutique", group: true}], tags: [{text:"Paiment", class:"is-danger"}]}}) %>
+                <%- include("../partials/table/support.ejs", {support : {id: "15", who:"Marc", excerpt:"En attente de la récéption de mon grade...", assign : [ {img : "https://eu.ui-avatars.com/api/?name=Milan&size=128", name: "Milan", group: false}, {img : "https://eu.ui-avatars.com/api/?name=Support+Boutique&size=128", name: "Support Boutique", group: true}], tags: [{text:"Paiment", class:"is-danger"}]}}) %>
+                <%- include("../partials/table/support.ejs", {support : {id: "48", who:"xX_Corentin_Xx", excerpt:"Aled ! C marche pas !", assign : [ {img : "https://eu.ui-avatars.com/api/?name=WelsyMC&size=128", name: "WelsyMC", group: false}, {img : "https://eu.ui-avatars.com/api/?name=Support+Jeu&size=128", name: "Support Jeu", group: true}, {img : "https://eu.ui-avatars.com/api/?name=Support+Launcher+Mac&size=128", name: "Support Launcher Mac", group: true} ], tags: [{text:"Driver", class:"is-primary"}]}}) %>
+                <%- include("../partials/table/support.ejs", {support : {id: "48", who:"xX_Corentin_Xx", excerpt:"Aled ! C marche pas !", assign : [ {img : "https://eu.ui-avatars.com/api/?name=WelsyMC&size=128", name: "WelsyMC", group: false}, {img : "https://eu.ui-avatars.com/api/?name=Support+Jeu&size=128", name: "Support Jeu", group: true}, {img : "https://eu.ui-avatars.com/api/?name=Support+Launcher+Mac&size=128", name: "Support Launcher Mac", group: true} ], tags: [{text:"Driver", class:"is-primary"}]}}) %>
+                <%- include("../partials/table/support.ejs", {support : {id: "48", who:"xX_Corentin_Xx", excerpt:"Aled ! C marche pas !", assign : [ {img : "https://eu.ui-avatars.com/api/?name=WelsyMC&size=128", name: "WelsyMC", group: false}, {img : "https://eu.ui-avatars.com/api/?name=Support+Jeu&size=128", name: "Support Jeu", group: true}, {img : "https://eu.ui-avatars.com/api/?name=Support+Launcher+Mac&size=128", name: "Support Launcher Mac", group: true} ], tags: [{text:"Driver", class:"is-primary"}]}}) %>
+                <%- include("../partials/table/support.ejs", {support : {id: "48", who:"xX_Corentin_Xx", excerpt:"Aled ! C marche pas !", assign : [ {img : "https://eu.ui-avatars.com/api/?name=WelsyMC&size=128", name: "WelsyMC", group: false}, {img : "https://eu.ui-avatars.com/api/?name=Support+Jeu&size=128", name: "Support Jeu", group: true}, {img : "https://eu.ui-avatars.com/api/?name=Support+Launcher+Mac&size=128", name: "Support Launcher Mac", group: true} ], tags: [{text:"Driver", class:"is-primary"}]}}) %>
+                <%- include("../partials/table/support.ejs", {support : {id: "48", who:"xX_Corentin_Xx", excerpt:"Aled ! C marche pas !", assign : [ {img : "https://eu.ui-avatars.com/api/?name=WelsyMC&size=128", name: "WelsyMC", group: false}, {img : "https://eu.ui-avatars.com/api/?name=Support+Jeu&size=128", name: "Support Jeu", group: true}, {img : "https://eu.ui-avatars.com/api/?name=Support+Launcher+Mac&size=128", name: "Support Launcher Mac", group: true} ], tags: [{text:"Driver", class:"is-primary"}]}}) %>
+                <%- include("../partials/table/support.ejs", {support : {id: "48", who:"REMPLIR", excerpt:"MESSAGE POUR REMPLIR. Descendez en bas pour un autre effet", assign : [ {img : "https://eu.ui-avatars.com/api/?name=WelsyMC&size=128", name: "WelsyMC", group: false}, {img : "https://eu.ui-avatars.com/api/?name=Support+Jeu&size=128", name: "Support Jeu", group: true}, {img : "https://eu.ui-avatars.com/api/?name=Support+Launcher+Mac&size=128", name: "Support Launcher Mac", group: true} ], tags: [{text:"Driver", class:"is-primary"}]}}) %>
+                <%- include("../partials/table/support.ejs", {support : {id: "48", who:"REMPLIR", excerpt:"MESSAGE POUR REMPLIR. Descendez en bas pour un autre effet", assign : [ {img : "https://eu.ui-avatars.com/api/?name=WelsyMC&size=128", name: "WelsyMC", group: false}, {img : "https://eu.ui-avatars.com/api/?name=Support+Jeu&size=128", name: "Support Jeu", group: true}, {img : "https://eu.ui-avatars.com/api/?name=Support+Launcher+Mac&size=128", name: "Support Launcher Mac", group: true} ], tags: [{text:"Driver", class:"is-primary"}]}}) %>
+                <%- include("../partials/table/support.ejs", {support : {id: "48", who:"REMPLIR", excerpt:"MESSAGE POUR REMPLIR. Descendez en bas pour un autre effet", assign : [ {img : "https://eu.ui-avatars.com/api/?name=WelsyMC&size=128", name: "WelsyMC", group: false}, {img : "https://eu.ui-avatars.com/api/?name=Support+Jeu&size=128", name: "Support Jeu", group: true}, {img : "https://eu.ui-avatars.com/api/?name=Support+Launcher+Mac&size=128", name: "Support Launcher Mac", group: true} ], tags: [{text:"Driver", class:"is-primary"}]}}) %>
+                <%- include("../partials/table/support.ejs", {support : {id: "48", who:"REMPLIR", excerpt:"MESSAGE POUR REMPLIR. Descendez en bas pour un autre effet", assign : [ {img : "https://eu.ui-avatars.com/api/?name=WelsyMC&size=128", name: "WelsyMC", group: false}, {img : "https://eu.ui-avatars.com/api/?name=Support+Jeu&size=128", name: "Support Jeu", group: true}, {img : "https://eu.ui-avatars.com/api/?name=Support+Launcher+Mac&size=128", name: "Support Launcher Mac", group: true} ], tags: [{text:"Driver", class:"is-primary"}]}}) %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="dropdown-menu" id="contextMenu" role="menu">
+        <div class="dropdown-content">
+            <a class="dropdown-item has-text-danger" onclick="">
+                <i class="fas iconMargin fa-ban"></i>Fermer
+            </a>
+            <a class="dropdown-item" onclick="">
+                <i class="fas iconMargin fa-reply"></i>Réponse rapide
+            </a>
+            <a class="dropdown-item" onclick="">
+                <i class="fas iconMargin fa-concierge-bell"></i>Assigner à
+            </a>
+            <a class="dropdown-item" onclick="">
+                <i class="fas iconMargin fa-tag"></i>Tagger
+            </a>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

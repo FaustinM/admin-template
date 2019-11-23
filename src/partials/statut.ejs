@@ -1,0 +1,38 @@
+<div id="statut">
+    <section class="hero is-bold is-primary">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    Bienvenue sur <%= statut.title %> !
+                </h1>
+                <h2 class="subtitle">
+                    Tout va bien !
+                </h2>
+            </div>
+        </div>
+    </section>
+    <section class="hero is-bold is-warning is-hide">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    Bienvenue sur <%= statut.title %> !
+                </h1>
+                <h2 class="subtitle">
+                    Quelques problèmes sont à déplorer... (<%= statut.raison %>)
+                </h2>
+            </div>
+        </div>
+    </section>
+    <section class="hero is-bold is-danger is-hide">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    Bienvenue sur <%= statut.title %> !
+                </h1>
+                <h2 class="subtitle">
+                    Le service est dans le mal ! (<%= statut.raison %>)
+                </h2>
+            </div>
+        </div>
+    </section>
+</div>

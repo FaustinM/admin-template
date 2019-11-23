@@ -1,16 +1,19 @@
 #profile-image {
     margin-right: 7px;
 }
+
 .iconMargin {
     margin-right: 5px;
 }
-.is-hide{
-    display : none;
+
+.is-hide {
+    display: none;
 }
 
-.is-display{
-    display : block;
+.is-display {
+    display: block;
 }
+
 #numberList {
     margin: 1%;
     text-align: center;
@@ -24,19 +27,151 @@
     margin-bottom: 2%;
     margin-top: 1%;
 }
+#bell::after{
+    -webkit-transition: opacity 0.3s;
+    -moz-transition: opacity 0.3s;
+    -ms-transition: opacity 0.3s;
+    -o-transition: opacity 0.3s;
+    transition: opacity 0.3s;
+    opacity: 0;
+    position: absolute;
+    content: "";
+    font-size: 40%;
+    padding: .6em;
+    border-radius: 999px;
+    line-height: .75em;
+    color: white;
+    background: rgba(255, 0, 0, .85);
+    text-align: center;
+    font-weight: bold;
+    left: 50%;
+    top: 30%;
+}
+#bell.notifBell::after {
+    -webkit-transition: opacity 0.3s;
+    -moz-transition: opacity 0.3s;
+    -ms-transition: opacity 0.3s;
+    -o-transition: opacity 0.3s;
+    transition: opacity 0.3s;
+    opacity: 1;
 
-#users {
-    width: 100%;
+}
+.outElement{
+    visibility: hidden;
+}
+.outElement.onOut{
+    visibility: visible;
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background-color: white;
 }
 
 #dropdown-menu {
     width: 100%;
 }
 
-.text-center{
+.text-center {
     text-align: center !important;
 }
 
 .profileImages {
     width: 16%;
+}
+#support-content {
+    margin-top: 2%;
+}
+.notRead::after{
+    -webkit-transition: opacity 0.3s;
+    -moz-transition: opacity 0.3s;
+    -ms-transition: opacity 0.3s;
+    -o-transition: opacity 0.3s;
+    transition: opacity 0.3s;
+    opacity: 1;
+    float: right;
+    content: attr(data-count);
+    font-size: 70%;
+    padding: .6em;
+    border-radius: 999px;
+    line-height: .6em;
+    background: #3273dc;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
+
+.is-active.notRead::after{
+    color: #3273dc;
+    background: white;
+}
+.button.is-small {
+    border-radius: 4px !important;
+}
+.assignImg{
+    max-width: 40%;
+    min-width: 30%;
+    padding: .3em;
+}
+.verticalDot {
+    transform: translateY(-15%) rotate(90deg);
+    font-size: 15px;
+    letter-spacing: 4px;
+    margin-top: 2px;
+    cursor: pointer;
+    -webkit-transform-origin: 25%;
+    -moz-transform-origin: 25%;
+    -o-transform-origin: 25%;
+    transform-origin: 25%;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Opera and Firefox */
+}
+td {
+    vertical-align: middle !important;
+}
+.has-text-yellow {
+    color: #6c81ee !important;
+}
+#contextMenu {
+    visibility: hidden;
+    position: fixed;
+}
+#contextMenu.is-active{
+    display: inherit;
+    visibility: visible;
+}
+.supportIconTable {
+    float: right;
+}
+#support-desc{
+    width: 55%;
+}
+#support-check{
+    width: 10%;
+}
+.profileImages.columns{
+    width: 125%;
+}
+.tag:not(body).is-yellow{
+    background-color: #6c81ee;
+    color: white;
+}
+.menu.outElement.onOut {
+    width: 348px !important;
+    left: 60px !important;
+    top: 25% !important;
+    right: inherit !important;
+}
+.stickyBar {
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
 }

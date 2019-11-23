@@ -1,0 +1,18 @@
+<tr class="<%=support.class%>">
+    <th><input type="checkbox"><%if(support.icon){%><i title="<%= support.iconInfo %>" class="fa supportIconTable fa-<%=support.icon%>"></i><%}%></th>
+    <th>#<%= support.id %></th>
+    <td><%= support.who %></td>
+    <td><%= support.excerpt %>
+        <% for(let tag of support.tags){ %>
+            <span style="margin-left: 1%" class="tag <%=tag.class%>"><%=tag.text%></span>
+        <%}%>
+    </td>
+    <td>
+        <figure class="profileImages columns image">
+            <% for(let assign of support.assign){ %>
+            <div class="assignImg column <%if(assign.group){%>has-tooltip-info<%}%>" data-tooltip="<%= assign.name %>"><img class="is-rounded" src="<%=assign.img%>"></div>
+            <%}%>
+        </figure>
+    </td>
+    <td class="verticalDot">•••</td>
+</tr>

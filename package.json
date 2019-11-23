@@ -1,0 +1,25 @@
+{
+  "name": "admin-template",
+  "version": "1.0.0",
+  "description": "Un template de panel admin",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon",
+    "lint": "ejslint $(find ./src -type f -iname '*.ejs')"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FaustinM/admin-template.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FaustinM/admin-template/issues"
+  },
+  "homepage": "https://github.com/FaustinM/admin-template#readme",
+  "dependencies": {
+    "ejs": "^2.7.4",
+    "ejs-lint": "^0.3.0"
+  }
+}

@@ -24,7 +24,7 @@ Ce projet est un template pour tous vos projets nécessitant un panel d'administ
 Il y a un fichier JavaScript utilisé pour quelques éléments comme le burger de navigation sur mobile ou les menus de complétion sur les champs de texte
 
 ## Comment utiliser le compilateur EJS
-Le compilateur EJS va s'occuper de recréer toutes l'arboresence ainsi que la "traduction" en HTML, pour ce qui est du css et du js laissez le à la racine, là où les fichiers HTML seront mient.
+Le compilateur EJS va s'occuper de recréer toutes l'arboresence ainsi que la "traduction" en HTML, pour ce qui est du css et du js laissez le à la racine, là où les fichiers HTML seront mis.
 
 EJS n'est pas utilisé avec Express, il est utilisé seulement pour sortir des fichiers statiques !
 

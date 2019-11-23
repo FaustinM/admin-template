@@ -23,10 +23,23 @@ Ce projet est un template pour tous vos projets nécessitant un panel d'administ
 ## La partie JavaScript
 Il y a un fichier JavaScript utilisé pour quelques éléments comme le burger de navigation sur mobile ou les menus de complétion sur les champs de texte
 
+## Comment utiliser le compilateur EJS
+Le compilateur EJS va s'occuper de recréer toutes l'arboresence ainsi que la "traduction" en HTML, pour ce qui est du css et du js laissez le à la racine, là où les fichiers HTML seront mient.
+
+EJS n'est pas utilisé avec Express, il est utilisé seulement pour sortir des fichiers statiques !
+
+# Installez les dépendances
+`npm install`
+
+# Lancez le script
+`npm start` > Si vous n'avez pas Nodemon
+`npm dev` > Dans le cas contraire
+
 ## Les dépendances
 
 * [Bulma](https://bulma.io)
 * [Font Awesome](https://fontawesome.com)
+* [EJS](https://ejs.co)
 * Et rien d'autre :)
 
 ## Projet utilisant ce template

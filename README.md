@@ -28,11 +28,12 @@ Le compilateur EJS va s'occuper de recréer toutes l'arboresence ainsi que la "t
 
 EJS n'est pas utilisé avec Express, il est utilisé seulement pour sortir des fichiers statiques !
 
-# Installez les dépendances
+### Installez les dépendances
 `npm install`
 
-# Lancez le script
+### Lancez le script
 `npm start` > Si vous n'avez pas Nodemon
+
 `npm dev` > Dans le cas contraire
 
 ## Les dépendances
